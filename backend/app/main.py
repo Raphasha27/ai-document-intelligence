@@ -1,32 +1,27 @@
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
 
-app = FastAPI(title="AI Document Intelligence - RAG API")
+from app.config import settings
+from app.routers import documents, query
+
+app = FastAPI(
+    title="AI Document Intelligence - RAG API",
+    description="RAG-powered document Q&A with vector search",
+    version="1.0.0",
+)
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-class QueryRequest(BaseModel):
-    document_id: str
-    question: str
+app.include_router(documents.router)
+app.include_router(query.router)
 
-@app.post("/api/documents/upload")
-async def upload_document(file: UploadFile = File(...)):
-    # Mocking ingestion & vector DB embedding
-    return {"document_id": "doc_12345", "filename": file.filename, "status": "indexed"}
 
-@app.post("/api/chat/query")
-async def query_document(req: QueryRequest):
-    # Mocking RAG retrieval + LLM synthesis
-    return {
-        "answer": f"Based on the uploaded document, here is the answer to: '{req.question}'. The system found 3 relevant text chunks using semantic search.",
-        "sources": [
-            {"page": 1, "text_snippet": "...relevant context from page 1..."},
-            {"page": 3, "text_snippet": "...more context from page 3..."}
-        ]
-    }
+@app.get("/health")
+async def health_check() -> dict[str, str]:
+    return {"status": "healthy", "version": "1.0.0"}
