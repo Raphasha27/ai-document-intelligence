@@ -1,3 +1,6 @@
+[![CI](https://github.com/Raphasha27/ai-document-intelligence/actions/workflows/ci.yml/badge.svg)](https://github.com/Raphasha27/ai-document-intelligence/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # 🧠 AI Document Intelligence (RAG)
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python)
