@@ -6,11 +6,11 @@ import App from "../App";
 describe("App", () => {
   it("renders the application", () => {
     render(<App />);
-    expect(screen.getByText("AI Document Intelligence")).toBeDefined();
+    expect(screen.getByText(/Sign In|AI Document/i)).toBeDefined();
   });
 
-  it("shows upload page by default", () => {
+  it("shows login form by default", () => {
     render(<App />);
-    expect(screen.getByText("Upload Documents")).toBeDefined();
+    expect(screen.getByText(/Sign In|Log In|Login/i)).toBeDefined();
   });
 });
