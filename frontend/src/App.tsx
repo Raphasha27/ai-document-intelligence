@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Bot, Send, Upload, FileText, Lock, Mail, ChevronRight } from 'lucide-react';
+import { Bot, Send, Upload, FileText, Lock, Mail } from 'lucide-react';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
