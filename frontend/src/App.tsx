@@ -94,8 +94,8 @@ function App() {
       <div className="flex-1 flex flex-col h-screen">
         <div className="flex-1 overflow-y-auto p-4 space-y-6">
           {messages.map((msg, idx) => (
-            <div key={idx} className={lex }>
-              <div className={max-w-[80%] p-4 rounded-2xl }>
+            <div key={idx} className={msg.role === 'assistant' ? 'bg-indigo-900/30 border border-indigo-700/50' : 'bg-slate-800 border border-slate-700'}>
+              <div className="max-w-[80%] p-4 rounded-2xl">
                 {msg.content}
                 {msg.role === 'assistant' && idx > 0 && (
                    <div className="mt-3 pt-3 border-t border-slate-700/50 text-xs text-slate-400">

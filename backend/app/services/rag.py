@@ -3,14 +3,18 @@ import httpx
 from app.config import settings
 from app.services.embeddings import EmbeddingService
 
-PROMPT_TEMPLATE = """You are a helpful document assistant. Answer the user's question based ONLY on the following context extracted from uploaded documents. If the context does not contain enough information to answer, say so clearly.
-
-Context:
-{context}
-
-Question: {question}
-
-Answer:"""
+PROMPT_TEMPLATE = (
+    "You are a helpful document assistant. Answer the user's question based ONLY on the "
+    "following context extracted from uploaded documents. If the context does not contain "
+    "enough information to answer, say so clearly.\n"
+    "\n"
+    "Context:\n"
+    "{context}\n"
+    "\n"
+    "Question: {question}\n"
+    "\n"
+    "Answer:"
+)
 
 
 def chunk_text(text: str, chunk_size: int = settings.CHUNK_SIZE, overlap: int = settings.CHUNK_OVERLAP) -> list[str]:

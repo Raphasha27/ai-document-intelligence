@@ -62,7 +62,7 @@ class EmbeddingService:
             docs = results["documents"][0]
             metas = results["metadatas"][0] if results["metadatas"] else [{}] * len(docs)
             ids = results["ids"][0] if results["ids"] else [""] * len(docs)
-            for doc, meta, chunk_id in zip(docs, metas, ids):
+            for doc, meta, chunk_id in zip(docs, metas, ids, strict=False):
                 items.append({"chunk_id": chunk_id, "text": doc, "metadata": meta})
         return items
 
