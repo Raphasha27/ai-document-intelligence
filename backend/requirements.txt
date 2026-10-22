@@ -1,6 +1,6 @@
-fastapi==0.141.1
-uvicorn[standard]==0.53.0
-pydantic-settings==2.15.0
+fastapi==0.146.0
+uvicorn[standard]==0.54.0
+pydantic-settings==2.16.0
 python-multipart==0.0.32
 chromadb==1.5.9
 httpx==0.28.1
